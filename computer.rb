@@ -1,7 +1,7 @@
 class Computer
 	
 	COLORS = ["R", "Y", "W", "O", "B", "P"]
- 	attr_reader :code_combo
+ 	attr_accessor :code_combo
 	
 	def initialize
 		
@@ -28,7 +28,7 @@ class Computer
 			puts "You have no matches"
 		
 		else
-			puts "You're close! The code contains #{get_matches(guess)}"
+			puts "The code contains #{get_matches(guess)}"
 		
 		end
 	end
@@ -45,4 +45,4 @@ class Computer
 		end	
 	end
 end
- 
+
