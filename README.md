@@ -6,7 +6,7 @@
 + CD into directory
 ```$ cd mastermind```
 + run following command: 
-```$ ruby mastermind.rb```
+```$ ruby mmgame.rb```
 + follow instructions on screen
 + have fun
 
