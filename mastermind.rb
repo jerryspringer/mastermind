@@ -1,12 +1,6 @@
-class Mastermind
+class Mastermind < Game
 	
-
-	def initialize
-		@player = Player.new
-		@computer = Computer.new
-	end
-
-		def welcome
+	def welcome
 		
 		puts "\nWelcome to Mastermind\n
 		The computer is holding a 4 color code you need to break\n
@@ -19,7 +13,6 @@ class Mastermind
 	end
  	
  	def play
-			welcome 
 
 		10.times do |i|
 			
