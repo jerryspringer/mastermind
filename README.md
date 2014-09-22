@@ -1,5 +1,5 @@
 #Mastermind
-###For running the program, 
+###info on running the program, 
 
 + Download program using git clone
 ```$ git clone https://github.com/jerryspringer/mastermind.git```
