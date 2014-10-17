@@ -22,11 +22,10 @@ class Player
 
 	def validate_code(guess)
 		guess.each do |color|
-			unless Computer::COLORS.include?(color)
+		unless Computer::COLORS.include?(color)
 				puts "The color #{color} is not a valid choice. Please choose from ['R', 'Y', 'W', 'O', 'B', 'P']."
-				exit
+				second_guess
 			end
 		end
 	end
-
 end

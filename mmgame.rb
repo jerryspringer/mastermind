@@ -16,4 +16,3 @@ elsif game_type == '2'
 else
 	puts "No game selected."
 end
-

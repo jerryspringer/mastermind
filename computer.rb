@@ -17,6 +17,19 @@ class Computer
 		match
 	end
 
+	def position(guess)
+	position = 0
+	match = []
+	4.times do
+	if guess[position] == @code_combo[position]
+		match << guess[position]
+	else
+		match << "$$"
+	end
+	position += 1
+	end
+end
+
 	def is_close?(guess)
 		if get_matches(guess) == []
 			puts "You have no matches"
@@ -28,34 +41,39 @@ class Computer
 
 	def is_exact?(guess)
 		if guess == @code_combo
-			return true
+			true
 		else
-			return false
+			false
 		end
 	end
 
 	def new_guess(current_guess)
-		if get_matches(current_guess).length != 4
-			return almost_there_guess(current_guess).shuffle
-		else
-			return current_guess.shuffle
-		end
+    	new_guess = []
+    	position(current_guess).each do |color|
+    		if color =! "$$"
+    			new_guess << color
+    		else 
+    			new_guess << available_colors(current_guess).sample(1)
+			end
+    	end
+    	return new_guess
 	end
 
 	def almost_there_guess(current_guess)
 		almost_there_guess =  []
 		until current_guess.length == almost_there_guess.length
 			length = get_matches(current_guess).length
+
 			almost_there_guess = (get_matches(current_guess) << available_colors(current_guess).sample(4 - length)).flatten!.uniq
 		end
-		return almost_there_guess
+		almost_there_guess
 	end
 
 	def available_colors(current_guess)
 		new_colors = []
 		new_colors = COLORS
 		remainder = new_colors.reject { |color| current_guess.include?(color) }
-		return remainder
+		remainder
 	end
 
 
