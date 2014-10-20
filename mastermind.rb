@@ -6,7 +6,7 @@ class Mastermind
 		@computer = Computer.new
 	end
 
-		def welcome
+	def welcome
 		
 		puts "\nWelcome to Mastermind\n
 		The computer is holding a 4 color code you need to break\n
