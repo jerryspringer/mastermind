@@ -17,17 +17,17 @@ class Computer
 		match
 	end
 
-	def position(guess)
+def position(guess)
 	position = 0
-	match = []
+	new_guess = guess 
 	4.times do
-	if guess[position] == @code_combo[position]
-		match << guess[position]
-	else
-		match << "$$"
+		if guess[position] == @code_combo[position]
+		else
+			new_guess[position] = "$$"
+		end
+		position += 1
 	end
-	position += 1
-	end
+	new_guess.flatten
 end
 
 	def is_close?(guess)
@@ -48,15 +48,11 @@ end
 	end
 
 	def new_guess(current_guess)
-    	new_guess = []
-    	position(current_guess).each do |color|
-    		if color =! "$$"
-    			new_guess << color
-    		else 
-    			new_guess << available_colors(current_guess).sample(1)
-			end
+    	new_guess = position(current_guess)
+    	new_guess.each_with_index do |color, index|
+    		new_guess[index] = available_colors(new_guess).sample if color == "$$"
     	end
-    	return new_guess
+    	return new_guess.flatten
 	end
 
 	def almost_there_guess(current_guess)

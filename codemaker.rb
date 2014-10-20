@@ -18,8 +18,10 @@ class CodeMaker
 
  	def play
 			welcome
-			guess = @player.second_guess(gets.chomp)
-			clean_guess = @player.validate_code(guess)
+			clean_guess = []
+			until @player.validate_code(clean_guess) =! false do 
+			clean_guess = @player.second_guess(gets.chomp)
+			end
 			@computer.code_combo = clean_guess
 			current_guess = Computer::COLORS.sample(4)
 
